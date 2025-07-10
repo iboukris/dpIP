@@ -1,0 +1,65 @@
+- add checksum offload with config, and test both scenarios.
+
+- change global variables to per-lcore, and initialize with init functions.
+
+- add multi-process and multi-core tests using symetric rss.
+
+- add zero copy API and excercise all scenarios, http, echo and proxy.
+
+- cleanup pbuf_alloc and reference (rework tcp-segmentation).
+
+- change example code to use use dpdk's TX buffer API.
+
+- rework the build system, use meson, produce lib and executable.
+
+- add dpip prefix to all public API and macros.
+
+- rework the config struct (timeouts, pool sizes, ip-fwd, hw-offload).
+
+- add config file using rte_cfgfile API to initialize the config struct.
+
+- add dedicated mempools for headers and external buffers.
+
+- change link-lists logic to priority queues for effciency.
+
+- change pcb lookup to use RTE hash-tables (with option to use rss hash).
+
+- rework TCP timers to have a per PCB rte_timer and avoid list walk.
+
+- investigate time management and use rte_rdtsc() instead.
+
+- rework netif API to read dpdk device info transparently.
+
+- on RX avoid modifiying the headers while proccesing (dpip_ntohs).
+
+- rework tcp-timestamps, and make use of them for RTT estimations.
+
+- cleanup ifdefs as much as possible (opt.h, use config for some).
+
+- rework logs to properly use rte_log() API, ideally with levels.
+
+- provide telemetry access to netif config (ip, routes).
+
+- provide telemetry access to dpid stats (max-lcores).
+
+- use dpdk API for sys utils (sys_now(), rand(), etc).
+
+- switch IP address structs and parsing to use sockaddr_in instead.
+
+- use dpdk's protocols structures instead of own (arp, ip, tcp, etc).
+
+- add back missing protocols, such as: udp, raw, dhcp, dns, etc.
+
+- add back frag/reass code using dpdk API instead.
+
+- change to a single event callback api with event type for simplicity.
+
+- bring back loop-if support, by allowing direct feeding to the stack.
+
+- add modular congestion-control algorithms, and add new modern ones.
+
+- implement pmtud using DPIP_IP_DF for IPv4 (partially done in IPv6).
+
+- investigate pkt-type parsing with dpdk (hw/sw), see:
+  rte_net_get_ptype(), rte_eth_dev_get_supported_ptypes()
+

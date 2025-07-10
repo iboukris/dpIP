@@ -1,0 +1,11 @@
+*.o
+*.so
+*.swp
+*.log
+
+tests/temp
+
+tags
+
+dpip_app
+
